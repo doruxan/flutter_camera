@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:receiter/home_screen.dart';
 
 List<CameraDescription> cameras = [];
+Map<String, List<File>> allFileList = new Map();
 
 void main() {
   runApp(const MyApp());

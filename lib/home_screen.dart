@@ -4,6 +4,9 @@ import 'package:flutter/widgets.dart';
 import 'package:receiter/camera_screen.dart';
 import 'package:receiter/main.dart';
 
+import 'list_screen.dart';
+import '../main.dart';
+
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -15,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return Container(child: Text('Sülo'));
+        return CapturesScreen(imageFileList: allFileList);
       case 1:
         return CameraScreen();
       default:
