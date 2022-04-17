@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:receiter/camera_screen.dart';
+import 'package:receiter/main.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -16,8 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 0:
         return Container(child: Text('Sülo'));
       case 1:
-        return TakePictureScreen(camera: _camera);
-
+        return CameraScreen();
       default:
         return new Text("Error");
     }
@@ -45,11 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onTap: (value) async {
             if (value == 1) {
               WidgetsFlutterBinding.ensureInitialized();
-              final cameras = await availableCameras();
-
-              setState(() {
-                _camera = cameras.first;
-              });
+              cameras = await availableCameras();
             }
             setState(() {
               _currentIndex = value;
